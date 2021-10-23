@@ -2,7 +2,7 @@
   <section id="auth-layout">
     <div class="auth-layout-container">
       <div class="auth-layout-content">
-        <v-card rounded elevation="2" class="auth-card-content">
+        <v-card rounded elevation="4" class="auth-card-content">
           <slot />
         </v-card>
       </div>
@@ -31,8 +31,14 @@ export default {
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 100% !important;
+    }
+
     .auth-card-content {
-      padding: 1rem;
+      padding: 2rem;
+      max-width: 400px;
     }
   }
 }

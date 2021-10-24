@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = `${process.env.VUE_APP_ENDPOINT}/authenticate`;
+const BASE_URL = `${process.env.VUE_APP_ENDPOINT}authenticate`;
 
 export default async (username, password) => {
   return axios({
@@ -8,11 +8,11 @@ export default async (username, password) => {
     url: BASE_URL,
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": process.env.VUE_APP_API_URL,
+      "Access-Control-Allow-Origin": process.env.VUE_APP_API_URL
     },
     auth: {
       username,
-      password,
-    },
+      password
+    }
   });
 };

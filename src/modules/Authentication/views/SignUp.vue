@@ -30,7 +30,7 @@
                 type="text"
                 outlined
                 required
-                append-icon="person"
+                append-icon="mail"
               ></v-text-field>
             </ValidationProvider>
           </div>
@@ -53,6 +53,8 @@
                 v-model="user.country_id"
                 :items="countries"
                 :error-messages="errors"
+                item-text="description"
+                item-value="id"
                 label="Country"
                 outlined
                 required
@@ -68,10 +70,13 @@
 
 <script>
 import { ValidationProvider } from "vee-validate";
-import AuthLayout from "../layout/AuthLayout.vue";
+import AuthLayout from "../layouts/AuthLayout.vue";
+import { userService } from "../services";
+import userMixin from "../mixins/userMixin";
 
 export default {
   name: "SignUp",
+  mixins: [userMixin],
   components: {
     AuthLayout,
     ValidationProvider
@@ -79,12 +84,25 @@ export default {
   data() {
     return {
       user: {},
-      countries: []
+      loading: false,
+      countries: [
+        {
+          id: 31,
+          description: "Brazil"
+        }
+      ]
     };
   },
   methods: {
-    onSubmit() {
-      console.log("teste");
+    async onSubmit() {
+      this.loading = true;
+      await this.createUser();
+
+      this.loading = false;
+      this.authenticateUser(this.user.email, this.user.password);
+    },
+    createUser() {
+      return userService.create(this.user);
     }
   }
 };

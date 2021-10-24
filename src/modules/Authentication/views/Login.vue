@@ -2,7 +2,7 @@
   <AuthLayout>
     <div id="login-content">
       <div class="login-header">
-        <h1>Log in.</h1>
+        <h1>Sign In.</h1>
         <p>Log in with your data that you entered during your registration</p>
       </div>
 
@@ -17,7 +17,7 @@
                 type="text"
                 outlined
                 required
-                append-icon="person"
+                append-icon="mail"
               ></v-text-field>
             </ValidationProvider>
           </div>
@@ -35,11 +35,16 @@
             </ValidationProvider>
           </div>
 
-          <v-btn block color="primary" @click="handleSubmit(onSubmit)">Sign In</v-btn>
+          <v-btn block color="primary" @click="handleSubmit(onSubmit)"
+            >Sign In
+            <v-icon right dark>
+              login
+            </v-icon></v-btn
+          >
         </Forms>
 
         <div class="login-footer mt-3">
-          <v-btn class="mb-2" text small color="primary">Forgot Password?</v-btn>
+          <v-btn text small color="primary">Forgot Password?</v-btn>
           <v-btn text small color="primary" tag="rounter-link" to="/sign-up"
             >Create new account</v-btn
           >
@@ -51,10 +56,12 @@
 
 <script>
 import { ValidationProvider } from "vee-validate";
-import AuthLayout from "../layout/AuthLayout.vue";
+import AuthLayout from "../layouts/AuthLayout.vue";
+import userMixin from "../mixins/userMixin";
 
 export default {
   name: "Login",
+  mixins: [userMixin],
   components: {
     AuthLayout,
     ValidationProvider
@@ -66,7 +73,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log("teste");
+      this.authenticateUser(this.auth.username, this.auth.password);
     }
   }
 };

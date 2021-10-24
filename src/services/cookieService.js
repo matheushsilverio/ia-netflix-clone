@@ -1,4 +1,7 @@
 import Vue from "vue";
+import cookies from "vue-cookies";
+
+Vue.use(cookies);
 
 export default {
   getCookie(key) {
@@ -11,6 +14,6 @@ export default {
     Vue.$cookies.remove(key);
   },
   clear() {
-    Vue.$cookies.keys().forEach((cookie) => Vue.$cookies.remove(cookie));
-  },
+    Vue.$cookies.keys().forEach(cookie => Vue.$cookies.remove(cookie));
+  }
 };

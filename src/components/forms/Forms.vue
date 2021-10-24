@@ -8,24 +8,14 @@
     <slot :handle-submit="handleSubmit" />
 
     <div v-if="!hideFooter" class="form-footer">
-      <v-btn
-        text
-        large
-        :loading="loading"
-        :disabled="loading"
-        color="primary"
-        @click="$emit('cancel')"
-      >
+      <v-btn text :loading="loading" :disabled="loading" color="primary" @click="$emit('cancel')">
         {{ buttonCancelText }}
       </v-btn>
-      <v-btn
-        large
-        :loading="loading"
-        :disabled="invalid"
-        color="primary"
-        @click="handleSubmit(onSubmit)"
-      >
+      <v-btn :loading="loading" :disabled="invalid" color="primary" @click="handleSubmit(onSubmit)">
         {{ buttonConfirmText }}
+        <v-icon right dark>
+          check
+        </v-icon>
       </v-btn>
     </div>
   </ValidationObserver>

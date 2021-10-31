@@ -2,7 +2,7 @@
   <section id="auth-layout">
     <div class="auth-layout-container">
       <div class="auth-layout-content">
-        <v-card rounded elevation="4" class="auth-card-content">
+        <v-card rounded elevation="4" class="auth-card-content backgroundPrimary">
           <slot />
         </v-card>
       </div>
@@ -22,7 +22,7 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: row;
-  background-color: rgb(47, 47, 255);
+  background-color: #1e2138;
 
   .auth-layout-container {
     height: 100%;

@@ -9,6 +9,9 @@ Vue.config.productionTip = false;
 import Forms from "@/components/forms/Forms";
 Vue.component("Forms", Forms);
 
+import BaseLayout from "@/components/layouts/BaseLayout";
+Vue.component("BaseLayout", BaseLayout);
+
 new Vue({
   router,
   store,

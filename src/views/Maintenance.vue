@@ -1,5 +1,5 @@
 <template>
-  <BaseLayout></BaseLayout>
+  <p>Manutencao</p>
 </template>
 
 <script>

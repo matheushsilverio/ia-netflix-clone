@@ -2,8 +2,8 @@
   <AuthLayout>
     <div id="signup-content">
       <div class="signup-header">
-        <h1>Sign Up</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h1>Registrar</h1>
+        <p>Crie sua conta e tenha acesso limitado a filmes e séries.</p>
       </div>
 
       <div class="signup-form mt-5">
@@ -15,7 +15,7 @@
                 :error-messages="errors"
                 label="Name"
                 type="text"
-                outlined
+                solo
                 required
                 append-icon="person"
               ></v-text-field>
@@ -28,7 +28,7 @@
                 :error-messages="errors"
                 label="Email"
                 type="text"
-                outlined
+                solo
                 required
                 append-icon="mail"
               ></v-text-field>
@@ -41,7 +41,7 @@
                 :error-messages="errors"
                 label="Password"
                 type="password"
-                outlined
+                solo
                 required
                 append-icon="lock"
               ></v-text-field>
@@ -56,7 +56,7 @@
                 item-text="description"
                 item-value="id"
                 label="Country"
-                outlined
+                solo
                 required
                 append-icon="map"
               ></v-select>

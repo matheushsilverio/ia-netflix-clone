@@ -3,7 +3,7 @@ export default [
     path: "/dashboard",
     name: "Dashboard",
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     },
     component: () => import("../views/Dashboard.vue")
   }

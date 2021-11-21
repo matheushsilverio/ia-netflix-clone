@@ -1,5 +1,12 @@
 <template>
   <section id="auth-layout">
+    <div class="logo-content">
+      <img
+        src="https://fontmeme.com/permalink/211121/93fa84c1a10c91ae3eaf69453df593e2.png"
+        alt="filmes10"
+        style="height: 75px"
+      />
+    </div>
     <div class="auth-layout-container">
       <div class="auth-layout-content">
         <v-card rounded elevation="4" class="auth-card-content backgroundPrimary">
@@ -20,16 +27,16 @@ export default {
 #auth-layout {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  background-color: #1e2138;
+  background-color: #000;
+
+  .logo-content {
+    margin: 20px 20px 5px;
+  }
 
   .auth-layout-container {
-    height: 100%;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -37,8 +44,9 @@ export default {
     }
 
     .auth-card-content {
-      padding: 2rem;
-      max-width: 400px;
+      padding: 3.5rem;
+      width: 440px;
+      background-color: #070705 !important;
     }
   }
 }

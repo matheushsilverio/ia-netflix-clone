@@ -2,8 +2,7 @@
   <AuthLayout>
     <div id="login-content">
       <div class="login-header">
-        <h1>Sign In.</h1>
-        <p>Log in with your data that you entered during your registration</p>
+        <h1 class="login-text">Entrar</h1>
       </div>
 
       <div class="login-form mt-5">
@@ -15,9 +14,8 @@
                 :error-messages="errors"
                 label="Email"
                 type="text"
-                outlined
+                solo
                 required
-                append-icon="mail"
               ></v-text-field>
             </ValidationProvider>
           </div>
@@ -26,28 +24,28 @@
               <v-text-field
                 v-model="auth.password"
                 :error-messages="errors"
-                label="Password"
+                label="Senha"
                 type="password"
-                outlined
+                solo
                 required
-                append-icon="lock"
               ></v-text-field>
             </ValidationProvider>
           </div>
 
-          <v-btn block color="primary" @click="handleSubmit(onSubmit)"
-            >Sign In
-            <v-icon right dark>
-              login
-            </v-icon></v-btn
-          >
+          <div style="margin: -25px 0 40px; text-align: end;">
+            <v-btn text small color="#436373">Precisa de ajuda?</v-btn>
+          </div>
+
+          <v-btn style="height: 45px" block color="primary" @click="handleSubmit(onSubmit)">
+            Entrar
+          </v-btn>
         </Forms>
 
-        <div class="login-footer mt-3">
-          <v-btn text small color="primary">Forgot Password?</v-btn>
-          <v-btn text small color="primary" tag="rounter-link" to="/sign-up"
-            >Create new account</v-btn
-          >
+        <div class="login-footer mt-5">
+          <p style="color: #436373; margin-top: 1.5px;">Novo por aqui ?</p>
+          <v-btn text small color="#FFFF" tag="rounter-link" to="/sign-up">
+            Criar Conta
+          </v-btn>
         </div>
       </div>
     </div>
@@ -82,9 +80,19 @@ export default {
 <style lang="scss" scoped>
 #login-content {
   .login-header {
-    margin-bottom: 3em;
+    margin-bottom: 2em;
+
+    .login-text {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
   }
   .login-footer {
+    text-align: center;
+    display: flex;
+
     button {
       font-size: 0.7em !important;
     }

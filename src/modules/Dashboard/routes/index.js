@@ -8,7 +8,7 @@ export default [
     component: () => import("../views/Dashboard.vue")
   },
   {
-    path: "/filme",
+    path: "/dashboard/filme/:id",
     name: "Filme",
     meta: {
       requiresAuth: false

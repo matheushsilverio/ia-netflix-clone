@@ -7,7 +7,9 @@ export default {
     ...mapActions("User", ["setUserStore"]),
     authenticateUser(email, password) {
       authenticateService(email, password)
-        .then(({ token, refreshToken, user }) => {
+        .then(response => {
+          const { token, refreshToken, user } = response.data;
+
           this.setUserStore(user);
           tokenService.save(token);
           tokenService.saveRefresh(refreshToken);

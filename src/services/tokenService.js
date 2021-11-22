@@ -1,6 +1,7 @@
 import cookieService from "./cookieService";
 
 export const TOKEN_KEY = process.env.VUE_APP_TOKEN_KEY;
+console.log(TOKEN_KEY);
 export const REFRESH_TOKEN_KEY = process.env.VUE_APP_REFRESH_TOKEN_KEY;
 
 export default {

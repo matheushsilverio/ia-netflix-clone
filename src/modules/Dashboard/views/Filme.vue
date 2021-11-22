@@ -1,21 +1,21 @@
 <template>
-  <section id="dashboard">
+  <section id="filme">
     <div class="header">
       <img
         src="https://fontmeme.com/permalink/211121/93fa84c1a10c91ae3eaf69453df593e2.png"
         alt="filmes10"
         style="height: 60px"
       />
-      <v-btn class="button-header" text large>
+      <v-btn class="button-header" text large tag="rounter-link" to="/dashboard">
         Home
       </v-btn>
-      <v-btn class="button-header" text large tag="rounter-link" to="/sugestao">
+      <v-btn class="button-header" text large>
         Sugestão
       </v-btn>
     </div>
     <div class="teste">
       <div>
-        <Category :title="categoria.title" v-for="(categoria, index) of categorias" :key="index" />
+        <Category title="Filmes Recomendados" />
       </div>
     </div>
   </section>
@@ -26,39 +26,12 @@ import Category from "@/modules/Dashboard/components/Category.vue";
 import { mapGetters } from "vuex";
 
 export default {
-  name: "Dashboard",
+  name: "Filme",
   components: {
     Category
   },
   data() {
-    return {
-      categorias: [
-        {
-          title: "Action"
-        },
-        {
-          title: "Adventure"
-        },
-        {
-          title: "Animation"
-        },
-        {
-          title: "Comedy"
-        },
-        {
-          title: "Sci-Fi"
-        },
-        {
-          title: "Drama"
-        },
-        {
-          title: "Horror"
-        },
-        {
-          title: "Romance"
-        }
-      ]
-    };
+    return {};
   },
   computed: {
     ...mapGetters("User", ["userStore"])
@@ -67,7 +40,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#dashboard {
+#filme {
   height: 100%;
   width: 100%;
   background-color: #000;

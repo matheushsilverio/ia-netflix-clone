@@ -4,6 +4,7 @@ import { validateMaintenance, validateToken } from "@/helpers/routerValidators.j
 
 import AuthRoutes from "@/modules/Authentication/routes/index";
 import DashboardRoutes from "@/modules/Dashboard/routes/index";
+import SugestaoRoutes from "@/modules/Sugestao/routes/index";
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,8 @@ const routes = [
     component: () => import("@/views/Maintenance.vue")
   },
   ...AuthRoutes,
-  ...DashboardRoutes
+  ...DashboardRoutes,
+  ...SugestaoRoutes
 ];
 
 const router = new VueRouter({

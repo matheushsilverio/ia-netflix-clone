@@ -47,21 +47,6 @@
               ></v-text-field>
             </ValidationProvider>
           </div>
-          <div class="form-group">
-            <ValidationProvider v-slot="{ errors }" name="Country" rules="required">
-              <v-select
-                v-model="user.country_id"
-                :items="countries"
-                :error-messages="errors"
-                item-text="description"
-                item-value="id"
-                label="Country"
-                solo
-                required
-                append-icon="map"
-              ></v-select>
-            </ValidationProvider>
-          </div>
         </Forms>
       </div>
     </div>
@@ -84,13 +69,7 @@ export default {
   data() {
     return {
       user: {},
-      loading: false,
-      countries: [
-        {
-          id: 31,
-          description: "Brazil"
-        }
-      ]
+      loading: false
     };
   },
   methods: {

@@ -28,20 +28,13 @@
             {{ movie.release_date }}
           </div>
         </v-card-text>
-        <div style="text-align: end; margin-right: 10px">
-          <v-btn text color="#E50914">
-            Assistir
-          </v-btn>
-        </div>
       </v-card>
     </div>
   </div>
 </template>
 
 <script>
-import MovieService from "@/modules/Dashboard/services/movieService.js";
-
-const movieService = new MovieService();
+import actionService from "@/modules/Dashboard/services/actionService.js";
 
 export default {
   name: "Category",
@@ -53,15 +46,19 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       movies: []
     };
   },
   created() {
-    this.loadMovies(this.title);
+    this.getMoviesAction();
   },
   methods: {
-    async loadMovies(title) {
-      this.movies = await movieService.getById(title);
+    getMoviesAction() {
+      return actionService.get().then(({ data }) => {
+        console.log(data);
+        this.movies = data;
+      });
     }
   }
 };
@@ -73,8 +70,7 @@ export default {
   padding: 15px;
 
   .card {
-    min-width: 350px;
-    min-height: 175px;
+    max-width: 250px;
     margin-right: 10px;
   }
 }

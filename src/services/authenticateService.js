@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = `${process.env.VUE_APP_ENDPOINT}authenticate`;
+console.log(BASE_URL);
 
 export default async (username, password) => {
   return axios({

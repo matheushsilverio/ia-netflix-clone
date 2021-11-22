@@ -7,14 +7,18 @@ export default {
     ...mapActions("User", ["setUserStore"]),
     authenticateUser(email, password) {
       authenticateService(email, password)
-        .then(({ token, refreshToken, user }) => {
+        .then(response => {
+          console.log(response);
+          const { token, refreshToken, user } = response.data;
+          console.log({ token, refreshToken, user });
           this.setUserStore(user);
           tokenService.save(token);
           tokenService.saveRefresh(refreshToken);
 
           this.$router.push({ name: "Dashboard" });
         })
-        .catch(() => {
+        .catch(err => {
+          console.log(err);
           alert("Authentication Failed");
         });
     }

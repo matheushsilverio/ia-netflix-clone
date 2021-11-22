@@ -3,15 +3,15 @@ export default [
     path: "/dashboard",
     name: "Dashboard",
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     },
     component: () => import("../views/Dashboard.vue")
   },
   {
-    path: "/dashboard/filme/:id",
+    path: "/dashboard/movies/:id",
     name: "Filme",
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     },
     component: () => import("../views/Filme.vue")
   }

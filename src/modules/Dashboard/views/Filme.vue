@@ -4,18 +4,10 @@
       <div class="movie-content">
         <h1>{{ movie.title }}</h1>
         <p>{{ movie.description }}</p>
-        <v-rating
-          :length="10"
-          color="red lighten-3"
-          background-color="grey lighten-1"
-          large
-        ></v-rating>
+        <v-rating v-model="movie.averageNote" :length="10" color="amber" dense medium></v-rating>
       </div>
       <div class="movie-theater">
         <vue-friendly-iframe className="screen" :src="link" @load="onLoad"></vue-friendly-iframe>
-      </div>
-      <div>
-        <!-- <Category title="Filmes Recomendados" /> -->
       </div>
     </v-container>
   </BaseLayout>
@@ -64,6 +56,7 @@ export default {
   width: 100%;
 }
 .movie-theater {
+  margin-top: 2em;
   width: 100%;
   height: 720px;
 

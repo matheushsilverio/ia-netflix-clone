@@ -1,5 +1,17 @@
 <template>
-  <section id="dashboard">
+  <BaseLayout>
+    <v-container>
+      <div class="categories-content">
+        <Category
+          :title="categoria.title"
+          :id="`category-${index}`"
+          v-for="(categoria, index) of categorias"
+          :key="index"
+        />
+      </div>
+    </v-container>
+  </BaseLayout>
+  <!-- <section id="dashboard">
     <div class="header">
       <img
         src="https://fontmeme.com/permalink/211121/93fa84c1a10c91ae3eaf69453df593e2.png"
@@ -15,10 +27,10 @@
     </div>
     <div class="teste">
       <div>
-        <Category :title="categoria.title" v-for="(categoria, index) of categorias" :key="index" />
+
       </div>
     </div>
-  </section>
+  </section> -->
 </template>
 
 <script>
@@ -67,28 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#dashboard {
-  height: 100%;
+.categories-content {
   width: 100%;
-  background-color: #000;
-
-  .header {
-    display: flex;
-    padding: 20px;
-
-    .button-header {
-      margin-left: 40px;
-      padding: 25px;
-      color: #fff;
-    }
-  }
-
-  .teste {
-    padding: 30px;
-
-    .cards {
-      margin-top: 15px;
-    }
-  }
 }
 </style>

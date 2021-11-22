@@ -11,9 +11,10 @@
             />
           </div>
           <div class="navbar-right">
-            <v-list-item-avatar>
-              <img src="https://randomuser.me/api/portraits/women/81.jpg" />
-            </v-list-item-avatar>
+            <p>{{ userStore.name }}</p>
+            <v-avatar>
+              <img src="https://randomuser.me/api/portraits/men/51.jpg" />
+            </v-avatar>
           </div>
         </div>
       </div>
@@ -26,8 +27,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "BaseLayout"
+  name: "BaseLayout",
+  computed: {
+    ...mapGetters("User", ["userStore"])
+  }
 };
 </script>
 
@@ -57,6 +63,15 @@ export default {
       .navbar-left,
       .navbar-right {
         display: flex;
+      }
+
+      .navbar-right {
+        align-items: center;
+
+        p {
+          margin-right: 1em;
+          margin-bottom: 0;
+        }
       }
     }
   }
